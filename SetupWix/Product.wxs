@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="15337825-4795-4e4c-9bbf-1f9285cbe736" Name="CherryTomato" Language="1033" Version="1.0.0.0"
+           Manufacturer="CherryTomato" UpgradeCode="49c8d4db-3691-45b7-bf79-f6a19a73dab8">
+		<Package InstallerVersion="200" Compressed="yes" />
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+    <PropertyRef Id="NETFRAMEWORK35" />
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLLOCATION" Name="cherrytomato">
+					 
+          <Component Id="ProductComponent" Guid="1a85ce91-8183-4891-9123-d2b423f3b553">
+
+            <File Id="CherryTomato.exe" Source="..\bin\Release\CherryTomato.exe" KeyPath="yes" />
+
+            <File Source="..\CherryTomato\largeicon.ico"/>
+            <File Source="..\bin\Release\blup.wav"/>
+            <File Source="..\bin\Release\CherryTomato.ActiveTaskSensor.dll"/>
+            <File Source="..\bin\Release\CherryTomato.Core.dll"/>
+            <File Source="..\bin\Release\CherryTomato.exe.config"/>
+            <File Source="..\bin\Release\CherryTomato.LiveMessengerController.dll"/>
+            <File Source="..\bin\Release\CherryTomato.Reminders.dll"/>
+            <File Source="..\bin\Release\CherryTomato.SimpleDashboard.dll"/>
+            <File Source="..\bin\Release\CherryTomato.SkypeController.dll"/>
+            <File Source="..\bin\Release\CherryTomato.SystrayIcon.dll"/>
+            <File Source="..\bin\Release\CherryTomato.UsbLamp.dll"/>
+            <File Source="..\bin\Release\CherryTomato.UserActivity.dll"/>
+            <File Source="..\bin\Release\click.wav"/>
+            <File Source="..\bin\Release\Common.Logging.dll"/>
+            <File Source="..\bin\Release\dong.wav"/>
+            <File Source="..\bin\Release\HIDLibrary.dll"/>
+            <File Source="..\bin\Release\Interop.MessengerAPI.dll"/>
+            <File Source="..\bin\Release\Interop.SKYPE4COMLib.dll"/>
+            <File Source="..\bin\Release\pomo_reminder.wav"/>
+            <File Source="..\bin\Release\pomo_ring.wav"/>
+            <File Source="..\bin\Release\pomo_start.wav"/>
+            <File Source="..\bin\Release\pomo_tick.wav"/>
+            <File Source="..\bin\Release\Quartz.dll"/>
+            <File Source="..\CherryTomato\readme.txt"/>
+            <File Source="..\SkypeController\Skype4COM-1.0.31.0\Skype4COM.dll" SelfRegCost="1"/>
+            <File Source="..\bin\Release\spacey.wav"/>
+            <File Source="..\bin\Release\System.Data.SQLite.dll"/>
+            <File Source="..\bin\Release\System.Data.SQLite.Linq.dll"/>
+
+          </Component> 
+          
+				</Directory>
+			</Directory>
+
+      <Directory Id="ProgramMenuFolder">
+          <Component Id="ApplicationShortcuts" Guid="*">
+            
+            <Shortcut Id="AppShortcut" Name="cherrytomato"
+                      Description="Focus with the power of the Pomodoro!"
+                      Target="[INSTALLLOCATION]CherryTomato.exe"
+                      Icon="Ico"                      
+                      WorkingDirectory="INSTALLLOCATION" >
+              <Icon Id="Ico" SourceFile="..\CherryTomato\largeicon.ico" />
+            </Shortcut>
+            <RegistryValue Root="HKCU" Key="Software\Microsoft\Pomodoro" Name="installed"
+                           Type="integer" Value="1" KeyPath="yes" />
+          </Component>
+      </Directory>
+      
+		</Directory>
+
+		<Feature Id="ProductFeature" Title="SetupWix" Level="1">
+			<ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="ApplicationShortcuts" />
+			<!-- Note: The following ComponentGroupRef is required to pull in generated authoring from project references. -->
+			<ComponentGroupRef Id="Product.Generated" />
+		</Feature>
+
+    <UI Id="CheckFramework">
+      <Dialog Id="FrameworkDlg" Width="260" Height="75"
+          Title="[ProductName]" NoMinimize="yes" >
+
+        <Control Id="Message" Type="Text" X="10" Y="10" Width="240" Height="40"
+            Text="This application requires Microsoft .NET Framework 3.5 to run. Please download and install the .NET Framework then run this installer again." />
+
+        <Control Id="Cancel" Type="PushButton" X="50" Y="52" Width="56" Height="17" Cancel="yes" Text="Cancel">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+
+        <Control Id="Open" Type="PushButton" X="110" Y="52" Width="90" Height="17" Text="Open download page">
+          <Publish Event="DoAction" Value="FrameworkDownloadPage" />
+        </Control>
+
+      </Dialog>
+
+      <InstallUISequence>
+        <Show Dialog="FrameworkDlg" After='AppSearch' >
+          <![CDATA[Installed OR NOT NETFRAMEWORK35]]>
+        </Show>
+      </InstallUISequence>
+
+    </UI>
+
+    <Property Id="WixShellExecTarget" Value="http://www.microsoft.com/en-us/download/details.aspx?id=21" />
+
+    <CustomAction Id="FrameworkDownloadPage" BinaryKey="WixCA"
+       DllEntry="WixShellExec" Impersonate="yes" />
+
+    <Icon Id="AppIco" SourceFile="..\CherryTomato\largeicon.ico" />
+
+    <Property Id='ARPCOMMENTS'>Focus with the power of the Pomodoro!</Property>
+    <Property Id='ARPHELPLINK'>http://beatpoints.com/cherrytomato/</Property>
+    <Property Id='ARPURLINFOABOUT'>http://beatpoints.com/cherrytomato/</Property>
+    <Property Id='ARPURLUPDATEINFO'>http://code.google.com/p/cherrytomato/</Property>
+    <Property Id='ARPPRODUCTICON'>AppIco</Property>
+    
+    <!--To suppress the Repair functionality-->
+    <Property Id='ARPNOREPAIR'>1</Property>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+    <UIRef Id="WixUI_InstallDir" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
+    
+    <!--<WixVariable Id='WixUILicenseRtf' Value='License Agreement.rtf' />-->
+    
+	</Product>
+</Wix>

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBA6D380-3F41-492E-A2FB-1095E47875A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CherryTomato.Reminders</RootNamespace>
+    <AssemblyName>CherryTomato.Reminders</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Quartz, Version=1.0.3.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CherryTomato.Core\Quartz\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conditions\DayOfWeekConditionChecker\DayOfWeekCondition.cs" />
+    <Compile Include="Conditions\DayOfWeekConditionChecker\DayOfWeekConditionChecker.cs" />
+    <Compile Include="Conditions\DayOfWeekConditionChecker\DayOfWeekConditionGuiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\DayOfWeekConditionChecker\DayOfWeekConditionGuiControl.Designer.cs">
+      <DependentUpon>DayOfWeekConditionGuiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\DayOfWeekConditionChecker\DayOfWeekConditionGuiController.cs" />
+    <Compile Include="Conditions\InPomodoroConditionChecker\InPomodoroCondition.cs" />
+    <Compile Include="Conditions\InPomodoroConditionChecker\InPomodoroConditionChecker.cs" />
+    <Compile Include="Conditions\InPomodoroConditionChecker\InPomodoroConditionGuiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\InPomodoroConditionChecker\InPomodoroConditionGuiControl.Designer.cs">
+      <DependentUpon>InPomodoroConditionGuiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\InPomodoroConditionChecker\InPomodoroConditionGuiController.cs" />
+    <Compile Include="Conditions\PomodoroTimeConditionChecker\PomodoroTimeCondition.cs" />
+    <Compile Include="Conditions\PomodoroTimeConditionChecker\PomodoroTimeConditionChecker.cs" />
+    <Compile Include="Conditions\PomodoroTimeConditionChecker\PomodoroTimeConditionGuiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\PomodoroTimeConditionChecker\PomodoroTimeConditionGuiControl.Designer.cs">
+      <DependentUpon>PomodoroTimeConditionGuiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\PomodoroTimeConditionChecker\PomodoroTimeConditionGuiController.cs" />
+    <Compile Include="Conditions\ProductivityConditionChecker\ProductivityCondition.cs" />
+    <Compile Include="Conditions\ProductivityConditionChecker\ProductivityConditionChecker.cs" />
+    <Compile Include="Conditions\ProductivityConditionChecker\ProductivityConditionGuiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\ProductivityConditionChecker\ProductivityConditionGuiControl.Designer.cs">
+      <DependentUpon>ProductivityConditionGuiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\ProductivityConditionChecker\ProductivityConditionGuiController.cs" />
+    <Compile Include="Conditions\TimeOfDayConditionChecker\TimeOfDayCondition.cs" />
+    <Compile Include="Conditions\TimeOfDayConditionChecker\TimeOfDayConditionChecker.cs" />
+    <Compile Include="Conditions\TimeOfDayConditionChecker\TimeOfDayConditionGuiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Conditions\TimeOfDayConditionChecker\TimeOfDayConditionGuiControl.Designer.cs">
+      <DependentUpon>TimeOfDayConditionGuiControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conditions\TimeOfDayConditionChecker\TimeOfDayConditionGuiController.cs" />
+    <Compile Include="Core\Conditions\CompositeCondition.cs" />
+    <Compile Include="Core\Conditions\Condition.cs" />
+    <Compile Include="Core\Conditions\ConditionChecker.cs" />
+    <Compile Include="Core\Conditions\ConditionCheckerPluginsRepository.cs" />
+    <Compile Include="Core\Conditions\Configuration\CompositeConditionCommandArgs.cs" />
+    <Compile Include="Core\Conditions\Configuration\ConditionsConfigurationController.cs" />
+    <Compile Include="Core\Conditions\Configuration\ConditionsConfigurationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\Conditions\Configuration\ConditionsConfigurationPanel.Designer.cs">
+      <DependentUpon>ConditionsConfigurationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Conditions\Configuration\IConditionController.cs" />
+    <Compile Include="Core\Conditions\ICondition.cs" />
+    <Compile Include="Core\Conditions\IConditionChecker.cs" />
+    <Compile Include="Core\Notifications\CompositeNotification.cs" />
+    <Compile Include="Core\Notifications\Configuration\CompositeNotificationCommandArgs.cs" />
+    <Compile Include="Core\Notifications\Configuration\INotificationController.cs" />
+    <Compile Include="Core\Notifications\Configuration\NotificationsConfigurationController.cs" />
+    <Compile Include="Core\Notifications\Configuration\NotificationsConfigurationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\Notifications\Configuration\NotificationsConfigurationPanel.Designer.cs">
+      <DependentUpon>NotificationsConfigurationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Notifications\INotification.cs" />
+    <Compile Include="Core\Notifications\INotifier.cs" />
+    <Compile Include="Core\Notifications\Notification.cs" />
+    <Compile Include="Core\Notifications\Notifier.cs" />
+    <Compile Include="Core\Notifications\NotifyPluginsRepository.cs" />
+    <Compile Include="Core\RemindersControllerPlugin.cs" />
+    <Compile Include="Core\RemindersPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Core\RemindersPanel.Designer.cs">
+      <DependentUpon>RemindersPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\RemindersPanelController.cs" />
+    <Compile Include="Core\Reminders\Configuration\IReminderController.cs" />
+    <Compile Include="Core\Reminders\Configuration\ReminderConfigurationController.cs" />
+    <Compile Include="Core\Reminders\Configuration\ReminderConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\Reminders\Configuration\ReminderConfigurationForm.Designer.cs">
+      <DependentUpon>ReminderConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Reminders\IReminder.cs" />
+    <Compile Include="Core\Reminders\IReminderPlugin.cs" />
+    <Compile Include="Core\Reminders\Reminder.cs" />
+    <Compile Include="Core\Reminders\ReminderCommandArgs.cs" />
+    <Compile Include="Core\Reminders\ReminderPlugin.cs" />
+    <Compile Include="Core\Reminders\ReminderPluginsRepository.cs" />
+    <Compile Include="Notifiers\PopupNotifier\PopupNotification.cs" />
+    <Compile Include="Notifiers\PopupNotifier\PopupNotificationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Notifiers\PopupNotifier\PopupNotificationControl.Designer.cs">
+      <DependentUpon>PopupNotificationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notifiers\PopupNotifier\PopupNotificationGuiController.cs" />
+    <Compile Include="Notifiers\PopupNotifier\PopupNotifier.cs" />
+    <Compile Include="Notifiers\ShakeNotifier\ShakeNotification.cs" />
+    <Compile Include="Notifiers\ShakeNotifier\ShakeNotificationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Notifiers\ShakeNotifier\ShakeNotificationControl.Designer.cs">
+      <DependentUpon>ShakeNotificationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notifiers\ShakeNotifier\ShakeNotificationGuiController.cs" />
+    <Compile Include="Notifiers\ShakeNotifier\ShakeNotifier.cs" />
+    <Compile Include="Notifiers\ShakeNotifier\ShakeState.cs" />
+    <Compile Include="Notifiers\ShakeNotifier\WindowShaker.cs" />
+    <Compile Include="Notifiers\SoundNotifier\SoundNotification.cs" />
+    <Compile Include="Notifiers\SoundNotifier\SoundNotificationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Notifiers\SoundNotifier\SoundNotificationControl.Designer.cs">
+      <DependentUpon>SoundNotificationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notifiers\SoundNotifier\SoundNotificationGuiController.cs" />
+    <Compile Include="Notifiers\SoundNotifier\SoundNotifier.cs" />
+    <Compile Include="Notifiers\SystrayIconNotifier\IconNotification.cs" />
+    <Compile Include="Notifiers\SystrayIconNotifier\IconNotificationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Notifiers\SystrayIconNotifier\IconNotificationControl.Designer.cs">
+      <DependentUpon>IconNotificationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notifiers\SystrayIconNotifier\IconNotificationGuiController.cs" />
+    <Compile Include="Notifiers\SystrayIconNotifier\IconNotifier.cs" />
+    <Compile Include="Notifiers\UsbLampNotifier\UsbLampNotification.cs" />
+    <Compile Include="Notifiers\UsbLampNotifier\UsbLampNotificationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Notifiers\UsbLampNotifier\UsbLampNotificationControl.Designer.cs">
+      <DependentUpon>UsbLampNotificationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notifiers\UsbLampNotifier\UsbLampNotificationGuiController.cs" />
+    <Compile Include="Notifiers\UsbLampNotifier\UsbLampNotifier.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reminders\AfterPomodoroReminder\AfterPomodoroReminder.cs" />
+    <Compile Include="Reminders\AfterPomodoroReminder\AfterPomodoroReminderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reminders\AfterPomodoroReminder\AfterPomodoroReminderControl.Designer.cs">
+      <DependentUpon>AfterPomodoroReminderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reminders\AfterPomodoroReminder\AfterPomodoroReminderController.cs" />
+    <Compile Include="Reminders\AfterPomodoroReminder\AfterPomodoroReminderPlugin.cs" />
+    <Compile Include="Reminders\IntervalReminder\IntervalReminder.cs" />
+    <Compile Include="Reminders\IntervalReminder\IntervalReminderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reminders\IntervalReminder\IntervalReminderControl.Designer.cs">
+      <DependentUpon>IntervalReminderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reminders\IntervalReminder\IntervalReminderController.cs" />
+    <Compile Include="Reminders\IntervalReminder\IntervalReminderPlugin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CherryTomato.Core\CherryTomato.Core.csproj">
+      <Project>{AE941392-0563-417B-9726-94B25A2B5B55}</Project>
+      <Name>CherryTomato.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystrayIcon\SystrayIcon.csproj">
+      <Project>{55298E77-F06B-4901-9C36-0A57B6ECEC79}</Project>
+      <Name>SystrayIcon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UsbLamp\UsbLamp.csproj">
+      <Project>{8267FCFC-DC98-4F4D-BBEC-571CACFA57CE}</Project>
+      <Name>UsbLamp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Conditions\DayOfWeekConditionChecker\DayOfWeekConditionGuiControl.resx">
+      <DependentUpon>DayOfWeekConditionGuiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\InPomodoroConditionChecker\InPomodoroConditionGuiControl.resx">
+      <DependentUpon>InPomodoroConditionGuiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\PomodoroTimeConditionChecker\PomodoroTimeConditionGuiControl.resx">
+      <DependentUpon>PomodoroTimeConditionGuiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\ProductivityConditionChecker\ProductivityConditionGuiControl.resx">
+      <DependentUpon>ProductivityConditionGuiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conditions\TimeOfDayConditionChecker\TimeOfDayConditionGuiControl.resx">
+      <DependentUpon>TimeOfDayConditionGuiControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Conditions\Configuration\ConditionsConfigurationPanel.resx">
+      <DependentUpon>ConditionsConfigurationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Notifications\Configuration\NotificationsConfigurationPanel.resx">
+      <DependentUpon>NotificationsConfigurationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\RemindersPanel.resx">
+      <DependentUpon>RemindersPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\Reminders\Configuration\ReminderConfigurationForm.resx">
+      <DependentUpon>ReminderConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifiers\PopupNotifier\PopupNotificationControl.resx">
+      <DependentUpon>PopupNotificationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifiers\ShakeNotifier\ShakeNotificationControl.resx">
+      <DependentUpon>ShakeNotificationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifiers\SoundNotifier\SoundNotificationControl.resx">
+      <DependentUpon>SoundNotificationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifiers\SystrayIconNotifier\IconNotificationControl.resx">
+      <DependentUpon>IconNotificationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifiers\UsbLampNotifier\UsbLampNotificationControl.resx">
+      <DependentUpon>UsbLampNotificationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reminders\AfterPomodoroReminder\AfterPomodoroReminderControl.resx">
+      <DependentUpon>AfterPomodoroReminderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reminders\IntervalReminder\IntervalReminderControl.resx">
+      <DependentUpon>IntervalReminderControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\blue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cyan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\green.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\purple.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\yellow.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\reminders.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

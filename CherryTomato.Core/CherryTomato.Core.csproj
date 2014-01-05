@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE941392-0563-417B-9726-94B25A2B5B55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CherryTomato.Core</RootNamespace>
+    <AssemblyName>CherryTomato.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Development|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Development\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>Quartz\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>Quartz\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>System.Data.SQLite\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>System.Data.SQLite\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CherryService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConfigureEventArgs.cs" />
+    <Compile Include="ConfigurePluginEventArgs.cs" />
+    <Compile Include="Database\ConnectToDbEventArgs.cs" />
+    <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Database\DatabaseController.cs" />
+    <Compile Include="EventsModel\CherryEvent.cs" />
+    <Compile Include="EventsModel\CherryEventArgs.cs" />
+    <Compile Include="EventsModel\CherryEventListener.cs" />
+    <Compile Include="EventsModel\CherryEventsCollection.cs" />
+    <Compile Include="EventsModel\ICherryEvent.cs" />
+    <Compile Include="EventsModel\ICherryEventListener.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="EventsModel\ICherryEventsProvider.cs" />
+    <Compile Include="PluginArchitecture\GuiConfigurablePluginEventArgs.cs" />
+    <Compile Include="PluginArchitecture\GuiConfigurablePluginInfo.cs" />
+    <Compile Include="PluginArchitecture\IPlugin.cs" />
+    <Compile Include="PluginArchitecture\PluginException.cs" />
+    <Compile Include="PluginArchitecture\PluginRepository.cs" />
+    <Compile Include="Pomodoro\PomodoroCommandArgs.cs" />
+    <Compile Include="Pomodoro\PomodoroEventArgs.cs" />
+    <Compile Include="Pomodoro\PomodoroRegistration.cs" />
+    <Compile Include="Pomodoro\PomodoroRunData.cs" />
+    <Compile Include="Pomodoro\PomodoroSensor.cs" />
+    <Compile Include="Pomodoro\PomodorosProductivityData.cs" />
+    <Compile Include="Pomodoro\ProductivityCommandArgs.cs" />
+    <Compile Include="Pomodoro\RunningPomodoroData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommandsModel\CherryCommandArgs.cs" />
+    <Compile Include="CommandsModel\CherryCommand.cs" />
+    <Compile Include="CommandsModel\CherryCommandsCollection.cs" />
+    <Compile Include="CommandsModel\ICherryCommand.cs" />
+    <Compile Include="CommandsModel\ICherryCommandsProvider.cs" />
+    <Compile Include="SoundController\PlaySoundCommandArgs.cs" />
+    <Compile Include="SoundController\SoundController.cs" />
+    <Compile Include="SoundController\SoundSettings.cs" />
+    <Compile Include="SoundController\SoundSettingsCommandArgs.cs" />
+    <Compile Include="StringDownloader.cs" />
+    <Compile Include="Pomodoro\TaskRegistration.cs" />
+    <Compile Include="TimeProvider\SingleActionCommandArgs.cs" />
+    <Compile Include="TimeProvider\TimeProvider.cs" />
+    <Compile Include="TimeProvider\TimeTriggerCommandArgs.cs" />
+    <Compile Include="WindowsController\WindowCommandArgs.cs" />
+    <Compile Include="WindowsController\WindowEventArgs.cs" />
+    <Compile Include="WindowsController\WindowsControllerPlugin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,27 @@
+1. How to run unit tests?
+Download and install NUnit framework from http://www.nunit.org.
+Download and install Visual Studio addin from http://testdriven.net.
+Rightclick a function, file, project, solution and select "Run Test(s)".
+
+2. How to create new project (plugin) which would compile, debug, and present in deployment project (.msi)?
+Create a C# standard "Class Library" project.
+Go to its properties.
+Change Assembly Name and Default Namespace to follow CherryTomato naming conventions.
+Make sure Target Framework is "3.5".
+Change default Output Path to be the following: "..\bin\Debug\" for Debug configuraiton and "..\bin\Release\" for Relese configuration.
+In case this is Unit Tests project change Output Path to "..\binTests\Debug\" and "..\binTests\Release\".
+Go to Setup project, right-click it, go to "Add" -> "Project Output". Select your new project and click OK.
+
+3. What are the CherryTomato naming conventions?
+a. Project file name should be identical to its folder name. For example "FirstRun\FirstRun.csproj".
+b. All namespaces should start from "CherryTomato.". For example "CherryTomato.FirstRun".
+c. Namespace second level should match project and folder names. For example "FirstRun\FirstRun.csproj" follows with "CherryTomato.FirstRun".
+
+4. How to see Traces/Logs to debug the application?
+You need to run the executable with /t argument. This is quite helpful trick to debug complex problems.
+
+5. CherryFirewall does not compile. How to fix?
+Just unload it. Rightclick -> Unload Project.
+
+6. SetupWix can't be loaded to the solution. OR How to build WiX installer (the SetupWix project)?
+Download WiX for Visual Studio http://wix.codeplex.com/ and install it.
